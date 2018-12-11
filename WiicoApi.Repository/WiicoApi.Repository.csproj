@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F9EEE5E-B44F-4337-B10C-E7568A800CA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WiicoApi.Repository</RootNamespace>
+    <AssemblyName>WiicoApi.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityRepositorys\ActivitysNoticesRepo.cs" />
+    <Compile Include="EntityRepositorys\ActivitysReadMarksRepo.cs" />
+    <Compile Include="EntityRepositorys\ActivitysRepo.cs" />
+    <Compile Include="EntityRepositorys\ActVoteItemRepo.cs" />
+    <Compile Include="EntityRepositorys\ActVoteRepo.cs" />
+    <Compile Include="EntityRepositorys\CalendarRepo.cs" />
+    <Compile Include="EntityRepositorys\CircleMemberRoleplaysRepo.cs" />
+    <Compile Include="EntityRepositorys\CoursesRepo.cs" />
+    <Compile Include="EntityRepositorys\DeptRepo.cs" />
+    <Compile Include="EntityRepositorys\ExternalResourceRepo.cs" />
+    <Compile Include="EntityRepositorys\FeedBackRepo.cs" />
+    <Compile Include="EntityRepositorys\LearningCircleRepo.cs" />
+    <Compile Include="EntityRepositorys\LearningTemplateRoleRepo.cs" />
+    <Compile Include="EntityRepositorys\MemberInviteRepo.cs" />
+    <Compile Include="EntityRepositorys\MembersRepo.cs" />
+    <Compile Include="EntityRepositorys\OrganizationRepo.cs" />
+    <Compile Include="EntityRepositorys\OrganizationRoleRepo.cs" />
+    <Compile Include="EntityRepositorys\SemesterGradeRepo.cs" />
+    <Compile Include="EntityRepositorys\SignInRepo.cs" />
+    <Compile Include="EntityRepositorys\SystemRoleRepo.cs" />
+    <Compile Include="EntityRepositorys\UserTokensRepo.cs" />
+    <Compile Include="GenericUnitOfWork.cs" />
+    <Compile Include="Migrations\201812050635230_init.cs" />
+    <Compile Include="Migrations\201812050635230_init.Designer.cs">
+      <DependentUpon>201812050635230_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="QueryCondition.cs" />
+    <Compile Include="WiicoDB.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityReportity\EntityReportity.csproj">
+      <Project>{fcbd0f7f-6bfc-471d-b1ba-eb4465fa4f9c}</Project>
+      <Name>EntityReportity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WiicoApi.Infratructure\WiicoApi.Infrastructure.csproj">
+      <Project>{af0754ac-eb90-406c-9ca1-3c228d720375}</Project>
+      <Name>WiicoApi.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityRepository.dll" />
+    <Content Include="bin\Release\EntityRepository.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812050635230_init.resx">
+      <DependentUpon>201812050635230_init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

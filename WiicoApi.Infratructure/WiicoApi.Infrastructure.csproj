@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF0754AC-EB90-406C-9CA1-3C228D720375}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WiicoApi.Infratructure</RootNamespace>
+    <AssemblyName>WiicoApi.Infratructure</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObject\AuthModuleInfo.cs" />
+    <Compile Include="BusinessObject\CircleCacheData.cs" />
+    <Compile Include="BusinessObject\CourseActivityInfo.cs" />
+    <Compile Include="BusinessObject\DiscussionEvent.cs" />
+    <Compile Include="BusinessObject\GroupInfo.cs" />
+    <Compile Include="BusinessObject\HomeworkDrive.cs" />
+    <Compile Include="BusinessObject\LearningCircleMemberList.cs" />
+    <Compile Include="BusinessObject\LearningCircleMembers.cs" />
+    <Compile Include="BusinessObject\LearningRole.cs" />
+    <Compile Include="BusinessObject\LikeCount.cs" />
+    <Compile Include="BusinessObject\MaterialEvent.cs" />
+    <Compile Include="BusinessObject\MemberCacheData.cs" />
+    <Compile Include="BusinessObject\MemberRoleInfo.cs" />
+    <Compile Include="BusinessObject\MemberUploadStatus.cs" />
+    <Compile Include="BusinessObject\ModuleFunctions.cs" />
+    <Compile Include="BusinessObject\MsgContent.cs" />
+    <Compile Include="BusinessObject\StuHomeworkRecord.cs" />
+    <Compile Include="BusinessObject\TokenCircleAuth.cs" />
+    <Compile Include="BusinessObject\UploadCount.cs" />
+    <Compile Include="BusinessObject\UploadEvent.cs" />
+    <Compile Include="BusinessObject\UserList.cs" />
+    <Compile Include="DataTransferObject\CommonValue.cs" />
+    <Compile Include="DataTransferObject\DiscussionCreateRequestModel.cs" />
+    <Compile Include="DataTransferObject\LeaveApiData.cs" />
+    <Compile Include="DataTransferObject\ModuleParameter.cs" />
+    <Compile Include="DataTransferObject\PagingParam.cs" />
+    <Compile Include="DataTransferObject\RequestFile.cs" />
+    <Compile Include="DataTransferObject\SignInEventParam.cs" />
+    <Compile Include="DataTransferObject\UploadFileModel.cs" />
+    <Compile Include="Entitys\ActBulletin.cs" />
+    <Compile Include="Entitys\ActDiscussion.cs" />
+    <Compile Include="Entitys\ActDiscussionMsg.cs" />
+    <Compile Include="Entitys\ActGeneral.cs" />
+    <Compile Include="Entitys\ActGroup.cs" />
+    <Compile Include="Entitys\ActGroupCategory.cs" />
+    <Compile Include="Entitys\ActGroupMember.cs" />
+    <Compile Include="Entitys\ActHomeWork.cs" />
+    <Compile Include="Entitys\ActHomeWorkLog.cs" />
+    <Compile Include="Entitys\ActHomeWorkScore.cs" />
+    <Compile Include="Entitys\Activitys.cs" />
+    <Compile Include="Entitys\ActivitysNotices.cs" />
+    <Compile Include="Entitys\ActivitysReadMark.cs" />
+    <Compile Include="Entitys\ActivitySyllabus.cs" />
+    <Compile Include="Entitys\ActMaterial.cs" />
+    <Compile Include="Entitys\ActMessage.cs" />
+    <Compile Include="Entitys\ActModuleMessage.cs" />
+    <Compile Include="Entitys\ActRollCall.cs" />
+    <Compile Include="Entitys\ActRollCallLog.cs" />
+    <Compile Include="Entitys\ActVote.cs" />
+    <Compile Include="Entitys\ActVoteItem.cs" />
+    <Compile Include="Entitys\AppVersion.cs" />
+    <Compile Include="Entitys\AttendanceLeave.cs" />
+    <Compile Include="Entitys\AttendanceLeaveLog.cs" />
+    <Compile Include="Entitys\AttendanceRecord.cs" />
+    <Compile Include="Entitys\Base\ChangeTimeBase.cs" />
+    <Compile Include="Entitys\Base\EntityBase.cs" />
+    <Compile Include="Entitys\Base\Interface\ISyncable.cs" />
+    <Compile Include="Entitys\Base\Interface\ITimeMark.cs" />
+    <Compile Include="Entitys\Base\RelationBase.cs" />
+    <Compile Include="Entitys\Base\SyncableEntity.cs" />
+    <Compile Include="Entitys\Base\SyncableRelation.cs" />
+    <Compile Include="Entitys\Base\TimeMarkBase.cs" />
+    <Compile Include="Entitys\Calendar.cs" />
+    <Compile Include="Entitys\CalendarDept.cs" />
+    <Compile Include="Entitys\CalendarOrganizationRole.cs" />
+    <Compile Include="Entitys\CalendarSemester.cs" />
+    <Compile Include="Entitys\CircleMember.cs" />
+    <Compile Include="Entitys\CircleMemberRoleplay.cs" />
+    <Compile Include="Entitys\Course.cs" />
+    <Compile Include="Entitys\DepartmentAdmin.cs" />
+    <Compile Include="Entitys\Dept.cs" />
+    <Compile Include="Entitys\DiscussionFile.cs" />
+    <Compile Include="Entitys\ExtensionColumn.cs" />
+    <Compile Include="Entitys\ExtensionColumnCustomization.cs" />
+    <Compile Include="Entitys\ExtensionValue.cs" />
+    <Compile Include="Entitys\ExternalResource.cs" />
+    <Compile Include="Entitys\ExternalResType.cs" />
+    <Compile Include="Entitys\FeedBack.cs" />
+    <Compile Include="Entitys\FileStorage.cs" />
+    <Compile Include="Entitys\GoogleFile.cs" />
+    <Compile Include="Entitys\LCExtensionValue.cs" />
+    <Compile Include="Entitys\LearningAuth.cs" />
+    <Compile Include="Entitys\LearningCircle.cs" />
+    <Compile Include="Entitys\LearningCircleManager.cs" />
+    <Compile Include="Entitys\LearningCircleModuleManage.cs" />
+    <Compile Include="Entitys\LearningModule.cs" />
+    <Compile Include="Entitys\LearningRole.cs" />
+    <Compile Include="Entitys\LearningTemplateRoles.cs" />
+    <Compile Include="Entitys\LeaveCategory.cs" />
+    <Compile Include="Entitys\LeaveFile.cs" />
+    <Compile Include="Entitys\LikeLog.cs" />
+    <Compile Include="Entitys\Member.cs" />
+    <Compile Include="Entitys\MemberInvite.cs" />
+    <Compile Include="Entitys\ModuleFuntions.cs" />
+    <Compile Include="Entitys\ModuleGroupCategory.cs" />
+    <Compile Include="Entitys\Modules.cs" />
+    <Compile Include="Entitys\ModuleScore.cs" />
+    <Compile Include="Entitys\Organization.cs" />
+    <Compile Include="Entitys\OrganizationLoginColumn.cs" />
+    <Compile Include="Entitys\OrganizationRole.cs" />
+    <Compile Include="Entitys\PushAccessToken.cs" />
+    <Compile Include="Entitys\PushData.cs" />
+    <Compile Include="Entitys\PushLog.cs" />
+    <Compile Include="Entitys\Rules.cs" />
+    <Compile Include="Entitys\RuleScore.cs" />
+    <Compile Include="Entitys\SchoolRole.cs" />
+    <Compile Include="Entitys\Section.cs" />
+    <Compile Include="Entitys\SemesterGrade.cs" />
+    <Compile Include="Entitys\SmartTAJoinGroupLog.cs" />
+    <Compile Include="Entitys\SqlConnectionString.cs" />
+    <Compile Include="Entitys\Syllabus.cs" />
+    <Compile Include="Entitys\SyncCourseLog.cs" />
+    <Compile Include="Entitys\SyncLog.cs" />
+    <Compile Include="Entitys\SystemErrorLog.cs" />
+    <Compile Include="Entitys\SystemErrorType.cs" />
+    <Compile Include="Entitys\SystemRole.cs" />
+    <Compile Include="Entitys\TimeTable.cs" />
+    <Compile Include="Entitys\UserToken.cs" />
+    <Compile Include="Entitys\WeekTable.cs" />
+    <Compile Include="Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Property\IListResult.cs" />
+    <Compile Include="Property\IPagingData.cs" />
+    <Compile Include="Property\ListResult.cs" />
+    <Compile Include="Property\ListResults.cs" />
+    <Compile Include="Property\MiddleListResult.cs" />
+    <Compile Include="Property\SingleResult.cs" />
+    <Compile Include="Property\TimeData.cs" />
+    <Compile Include="ValueObject\ActivityBase.cs" />
+    <Compile Include="ValueObject\activityEnum.cs" />
+    <Compile Include="ValueObject\ActivitysLatest.cs" />
+    <Compile Include="ValueObject\ActivitysNoticeData.cs" />
+    <Compile Include="ValueObject\AdminRole.cs" />
+    <Compile Include="ValueObject\AttendanceLeaveViewData.cs" />
+    <Compile Include="ValueObject\AttendanceStateEnum.cs" />
+    <Compile Include="ValueObject\AuthMember.cs" />
+    <Compile Include="ValueObject\CourseInfo.cs" />
+    <Compile Include="ValueObject\CourseMember.cs" />
+    <Compile Include="ValueObject\enumAbsenceFormStatus.cs" />
+    <Compile Include="ValueObject\enumLeaveType.cs" />
+    <Compile Include="ValueObject\ExtensionColumnValue.cs" />
+    <Compile Include="ValueObject\GraduationStatus.cs" />
+    <Compile Include="ValueObject\GroupMember.cs" />
+    <Compile Include="ValueObject\ICan5Course.cs" />
+    <Compile Include="ValueObject\InviteStatusEnum.cs" />
+    <Compile Include="ValueObject\LearningCircleInfo.cs" />
+    <Compile Include="ValueObject\LearningCircleMemberInfo.cs" />
+    <Compile Include="ValueObject\LoginTokenInfo.cs" />
+    <Compile Include="ValueObject\ModuleFunctionInfo.cs" />
+    <Compile Include="ValueObject\ModuleFunctions.cs" />
+    <Compile Include="ValueObject\SignalrConnectIdType.cs" />
+    <Compile Include="ValueObject\SignalrDataType.cs" />
+    <Compile Include="ValueObject\SignInBase.cs" />
+    <Compile Include="ValueObject\SignInData.cs" />
+    <Compile Include="ValueObject\SignInEvent.cs" />
+    <Compile Include="ValueObject\SignInLog.cs" />
+    <Compile Include="ValueObject\SignInRandomPwd.cs" />
+    <Compile Include="ValueObject\SignStatus.cs" />
+    <Compile Include="ValueObject\SystemErrorTypeNum.cs" />
+    <Compile Include="ValueObject\TempMember.cs" />
+    <Compile Include="ViewModel\ActGeneralViewModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\AcitivtyBaseRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\ActivityListRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionCommentDetail.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionDetail.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionLoadComment.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionMessage.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionModuleList.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionSendMsg.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionSendMsgRequestModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Discussion\DiscussionUpdateLikeInfo.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\ClassRoomInfo.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\GetAbSenceFormDetailRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\GetAbSenceFormDetailResponse.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\GetAbsenceFormListRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\GetAbsenceFormListResponse.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\LeaveCreateRequestModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\LeaveData.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\LeaveDetailViewModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\LeaveListViewModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\LeaveViewModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\RoomInfo.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\SetAbsenceFormStatusRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\SetAbsenceFormStatusResponse.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Leave\SetNewAbsenceFormRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\SignIn\SignInModuleList.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VoteChangeStartRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VoteItemViewModel.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VoteListResponse.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VotePostRequest.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VoteStateEnum.cs" />
+    <Compile Include="ViewModel\ActivityFunction\Vote\VoteViewModel.cs" />
+    <Compile Include="ViewModel\ActivitysNoticeViewModel.cs" />
+    <Compile Include="ViewModel\ActivitysViewModel.cs" />
+    <Compile Include="ViewModel\AppVersionViewModel.cs" />
+    <Compile Include="ViewModel\AttendanceLeaveViewModel.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberInfo.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberListViewModel.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRequest.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRoleInfo.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRoleListViewModel.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRoleManageAccounts.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRolePutRequest.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberRoleRequest.cs" />
+    <Compile Include="ViewModel\Backend\CircleMemberViewModel.cs" />
+    <Compile Include="ViewModel\Backend\CourseExt.cs" />
+    <Compile Include="ViewModel\Backend\CourseViewModel.cs" />
+    <Compile Include="ViewModel\Backend\DeptManagePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\DeptManagePutRequest.cs" />
+    <Compile Include="ViewModel\Backend\ExternalResourcePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\LearningCircleExt.cs" />
+    <Compile Include="ViewModel\Backend\LearningCircleGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\LearningCircleGetResponse.cs" />
+    <Compile Include="ViewModel\Backend\LearningCircleManageViewModel.cs" />
+    <Compile Include="ViewModel\Backend\LearningCirclePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\LearningCircleViewModel.cs" />
+    <Compile Include="ViewModel\Backend\LearningRoleDeleteResquest.cs" />
+    <Compile Include="ViewModel\Backend\LearningRoleGetResponse.cs" />
+    <Compile Include="ViewModel\Backend\LearningRolePostResquest.cs" />
+    <Compile Include="ViewModel\Backend\LearningRolePostRole.cs" />
+    <Compile Include="ViewModel\Backend\LearningTemplateRolePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\MemberManageDeleteRequest.cs" />
+    <Compile Include="ViewModel\Backend\MemberManageGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\MemberManagePutRequest.cs" />
+    <Compile Include="ViewModel\Backend\MembersViewModel.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationDeleteRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationMemberViewModel.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationPostRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationPutRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationRoleGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrganizationRolePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\OrgManageViewModel.cs" />
+    <Compile Include="ViewModel\Backend\SemesterGradePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\SessionData.cs" />
+    <Compile Include="ViewModel\Backend\SmartTAGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\SmartTAGetResponse.cs" />
+    <Compile Include="ViewModel\Backend\SmartTAGetResponseData.cs" />
+    <Compile Include="ViewModel\Backend\SmartTAPostRequest.cs" />
+    <Compile Include="ViewModel\Backend\TimeTableGetRequest.cs" />
+    <Compile Include="ViewModel\Backend\TimeTablePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\UserGetResponse.cs" />
+    <Compile Include="ViewModel\Backend\UserGetResponseExtraInfo.cs" />
+    <Compile Include="ViewModel\Backend\UserPostResponse.cs" />
+    <Compile Include="ViewModel\Backend\WeekTablePostRequest.cs" />
+    <Compile Include="ViewModel\Backend\WeekTableViewModel.cs" />
+    <Compile Include="ViewModel\Base\BackendBaseRequest.cs" />
+    <Compile Include="ViewModel\Base\BaseResponse.cs" />
+    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Base\LogState.cs" />
+    <Compile Include="ViewModel\Base\PagesRows.cs" />
+    <Compile Include="ViewModel\Base\ReadMarkResult.cs" />
+    <Compile Include="ViewModel\Base\ResultBaseModel.cs" />
+    <Compile Include="ViewModel\CourseListViewModel.cs" />
+    <Compile Include="ViewModel\CourseManage\ActivitySyllabusManageRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\ActivitySyllabusResponseData.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleAdminSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleInfoSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleMemberSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleRoleSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleScheduleSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CircleTimelistSettingAuth.cs" />
+    <Compile Include="ViewModel\CourseManage\CourseManageAuthResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\CourseManagerDeleteRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\CourseManagerGetResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\CourseManagerPostRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\DataCourseDataModel.cs" />
+    <Compile Include="ViewModel\CourseManage\GetAllMyCourseRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\GetAllMyCourseResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\GetAllMyCourseWeekTable.cs" />
+    <Compile Include="ViewModel\CourseManage\GetCourseDetailRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\GetCourseDetailResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\GetCourseSyllabusRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\GetCourseSyllabusResponse..cs" />
+    <Compile Include="ViewModel\CourseManage\GetMyCourseScheduleResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\GetWeekBySemeRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\InviteRecordGetResponse.cs" />
+    <Compile Include="ViewModel\CourseManage\InviteResponseData.cs" />
+    <Compile Include="ViewModel\CourseManage\MemberInviteGetRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\MemberInvitePostRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\MemberInvitePutRequest.cs" />
+    <Compile Include="ViewModel\CourseManage\SyllabusData.cs" />
+    <Compile Include="ViewModel\CourseManage\SyllabusManagePostRequest.cs" />
+    <Compile Include="ViewModel\DiscussionViewModel.cs" />
+    <Compile Include="ViewModel\EmailManageRequest.cs" />
+    <Compile Include="ViewModel\FileStorageViewModel.cs" />
+    <Compile Include="ViewModel\FileViewModel.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebaseAndroid.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebaseAndroidNotification.cs" />
+    <Compile Include="ViewModel\FirebasePush\Firebaseios.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebaseNotification.cs" />
+    <Compile Include="ViewModel\FirebasePush\FIrebasePushPostRequest.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebasePushRequest.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebasePushResponse.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebaseWebNotification.cs" />
+    <Compile Include="ViewModel\FirebasePush\FirebaseWebPush.cs" />
+    <Compile Include="ViewModel\FirebasePush\SiteConfig.cs" />
+    <Compile Include="ViewModel\GroupCategoryViewModel.cs" />
+    <Compile Include="ViewModel\GroupInfoViewModel.cs" />
+    <Compile Include="ViewModel\GroupListViewModel.cs" />
+    <Compile Include="ViewModel\HomeWorkViewModel.cs" />
+    <Compile Include="ViewModel\ICan5CourseListViewModel.cs" />
+    <Compile Include="ViewModel\ListViewModel.cs" />
+    <Compile Include="ViewModel\Login\AccountConfirmOrganization.cs" />
+    <Compile Include="ViewModel\Login\LoginLearningMapBasic.cs" />
+    <Compile Include="ViewModel\Login\LoginRequest.cs" />
+    <Compile Include="ViewModel\Login\LoginResponse.cs" />
+    <Compile Include="ViewModel\Login\PersonPutRequest.cs" />
+    <Compile Include="ViewModel\Login\RegisterRequest.cs" />
+    <Compile Include="ViewModel\Login\RegisterResponse.cs" />
+    <Compile Include="ViewModel\Login\ReSetPassWordPostRequest.cs" />
+    <Compile Include="ViewModel\Login\ReSetPassWordPutRequest.cs" />
+    <Compile Include="ViewModel\MaterialViewModel.cs" />
+    <Compile Include="ViewModel\MemberManage\CircleMemberRoleManageGetResponse.cs" />
+    <Compile Include="ViewModel\MemberManage\GetCourseMemberInfoRequest.cs" />
+    <Compile Include="ViewModel\MemberManage\GetCourseMemberInfoResponse.cs" />
+    <Compile Include="ViewModel\MemberManage\InsertMemberRoleViewModel.cs" />
+    <Compile Include="ViewModel\MemberManage\MailSettingViewModel.cs" />
+    <Compile Include="ViewModel\MemberManage\MemberPhotoRequest.cs" />
+    <Compile Include="ViewModel\MemberManage\MemberPhotoResponse.cs" />
+    <Compile Include="ViewModel\MemberManage\TeacherPhotoInfo.cs" />
+    <Compile Include="ViewModel\MemberRoleList.cs" />
+    <Compile Include="ViewModel\MessageViewModel.cs" />
+    <Compile Include="ViewModel\ModuleDetailViewModel.cs" />
+    <Compile Include="ViewModel\ModulesListViewModel.cs" />
+    <Compile Include="ViewModel\MQTT\DeviceEnum.cs" />
+    <Compile Include="ViewModel\MQTT\DeviceViewModel.cs" />
+    <Compile Include="ViewModel\MQTT\EnvironmentEnum.cs" />
+    <Compile Include="ViewModel\MQTT\IOTCallApiMethodsEnum.cs" />
+    <Compile Include="ViewModel\MQTT\IOTDeviceResponse.cs" />
+    <Compile Include="ViewModel\MQTT\IOTGetRequest.cs" />
+    <Compile Include="ViewModel\MQTT\IOTPostRequest.cs" />
+    <Compile Include="ViewModel\MQTT\IOTProjectAverageData.cs" />
+    <Compile Include="ViewModel\MQTT\IOTProjectAvgDataResponse.cs" />
+    <Compile Include="ViewModel\MQTT\IOTProjectMoctionViewModel.cs" />
+    <Compile Include="ViewModel\MQTT\IOTProjectRecordData.cs" />
+    <Compile Include="ViewModel\MQTT\IOTProjectViewModel.cs" />
+    <Compile Include="ViewModel\MQTT\IOTSensorResponse.cs" />
+    <Compile Include="ViewModel\MQTT\RoomDeviceViewModel.cs" />
+    <Compile Include="ViewModel\MQTT\Sensor.cs" />
+    <Compile Include="ViewModel\MQTT\SensorSave.cs" />
+    <Compile Include="ViewModel\MQTT\SensorSetValues.cs" />
+    <Compile Include="ViewModel\MQTT\SensorTypeEnum.cs" />
+    <Compile Include="ViewModel\MQTT\SubSensor.cs" />
+    <Compile Include="ViewModel\PersonViewModel.cs" />
+    <Compile Include="ViewModel\ReviewDataModel.cs" />
+    <Compile Include="ViewModel\RoleModuleFunction.cs" />
+    <Compile Include="ViewModel\School\FeedBack\FeedBackGetResponse.cs" />
+    <Compile Include="ViewModel\School\FeedBack\FeedBackPostRequest.cs" />
+    <Compile Include="ViewModel\School\FeedBack\FeedBackPutRequest.cs" />
+    <Compile Include="ViewModel\School\GetCampusEventGetResponse.cs" />
+    <Compile Include="ViewModel\School\LearningMap\GetLearningMapDataResponse.cs" />
+    <Compile Include="ViewModel\School\LearningMap\learningMapColls.cs" />
+    <Compile Include="ViewModel\School\LearningMap\LearningMapCurss.cs" />
+    <Compile Include="ViewModel\School\LearningMap\LearningMapDomas.cs" />
+    <Compile Include="ViewModel\School\LearningMap\SceLearningMapColls.cs" />
+    <Compile Include="ViewModel\School\LearningMap\SceLearningMapCurss.cs" />
+    <Compile Include="ViewModel\School\LearningMap\SceLearningMapDomas.cs" />
+    <Compile Include="ViewModel\School\LearningMap\SceLearningMapResponse.cs" />
+    <Compile Include="ViewModel\School\PdsData\FlowData.cs" />
+    <Compile Include="ViewModel\School\PdsData\GetPdsFlowsRequest.cs" />
+    <Compile Include="ViewModel\School\PdsData\PdsEnums.cs" />
+    <Compile Include="ViewModel\School\PdsData\PdsFlowModel.cs" />
+    <Compile Include="ViewModel\School\SignInSynchronize\SignSyncClientRequest.cs" />
+    <Compile Include="ViewModel\School\SignInSynchronize\SignSynciCanMemberListRequest.cs" />
+    <Compile Include="ViewModel\School\SignInSynchronize\SignSynciCanRequest.cs" />
+    <Compile Include="ViewModel\School\SignInSynchronize\SignSyncMemberListRequest.cs" />
+    <Compile Include="ViewModel\School\uDollar\OnlineBalanceResult.cs" />
+    <Compile Include="ViewModel\School\uDollar\uDollarErrorMsg.cs" />
+    <Compile Include="ViewModel\SignalR\SignIn\ServerCheckItem.cs" />
+    <Compile Include="ViewModel\SignInDetailViewModel.cs" />
+    <Compile Include="ViewModel\SignInLogViewModel.cs" />
+    <Compile Include="ViewModel\UserTokenRequest.cs" />
+    <Compile Include="ViewModel\Weather\Main.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherAPIResponse.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherElement.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherElementParameter.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherElementTime.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherField.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherLocation.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherRecords.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherResult.cs" />
+    <Compile Include="ViewModel\Weather\OpenWeather\OpenWeatherTodayModel.cs" />
+    <Compile Include="ViewModel\Weather\Weather.cs" />
+    <Compile Include="ViewModel\Weather\WeatherDataModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
