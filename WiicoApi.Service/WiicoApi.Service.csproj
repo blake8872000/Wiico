@@ -107,6 +107,7 @@
     <Compile Include="CommenService\PushService.cs" />
     <Compile Include="CommenService\ReSetPassWordService.cs" />
     <Compile Include="CommenService\SectionService.cs" />
+    <Compile Include="CommenService\TestRX.cs" />
     <Compile Include="CommenService\TokenService.cs" />
     <Compile Include="CommenService\WeatherService.cs" />
     <Compile Include="Leave\LeaveService.cs" />

@@ -30,19 +30,16 @@ namespace WiicoApi.Controllers.BackendManage.Tests
             target = new UserController();
             var targetRequest = JsonConvert.SerializeObject(getTestValue);
             var targetResponse = target.Get(targetRequest);
-            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<BaseResponse<IEnumerable<UserGetResponse>>>));
-            var targetResponseData = targetResponse as OkNegotiatedContentResult<BaseResponse<IEnumerable<UserGetResponse>>>;
+            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<UserGetResponse>));
+            var targetResponseData = targetResponse as OkNegotiatedContentResult<UserGetResponse>;
             Assert.IsNotNull(targetResponseData.Content);
-            Assert.IsTrue(targetResponseData.Content.Success);
 
             getTestValue.OrgId = 4;
             targetRequest = JsonConvert.SerializeObject(getTestValue);
             targetResponse = target.Get(targetRequest);
-            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<BaseResponse<IEnumerable<UserGetResponse>>>));
-            targetResponseData = targetResponse as OkNegotiatedContentResult<BaseResponse<IEnumerable<UserGetResponse>>>;
+            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<UserGetResponse>));
+            targetResponseData = targetResponse as OkNegotiatedContentResult<UserGetResponse>;
             Assert.IsNotNull(targetResponseData.Content);
-            Assert.IsTrue(targetResponseData.Content.Message == "沒有資料");
-            Assert.IsTrue(targetResponseData.Content.Success);
         }
         [TestMethod()]
         public void GetErrorTest()
@@ -75,10 +72,9 @@ namespace WiicoApi.Controllers.BackendManage.Tests
             target = new UserController();
 
             var targetResponse = target.Post(postTestValue);
-            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<BaseResponse<UserPostResponse>>));
-            var targetResponseData = targetResponse as OkNegotiatedContentResult<BaseResponse<UserPostResponse>>;
+            Assert.IsInstanceOfType(targetResponse, typeof(OkNegotiatedContentResult<UserPostResponse>));
+            var targetResponseData = targetResponse as OkNegotiatedContentResult<UserPostResponse>;
             Assert.IsNotNull(targetResponseData.Content);
-            Assert.IsNotNull(targetResponseData.Content.Data);
             // Assert.IsTrue(targetResponseData.Content.Success);
         }
         [TestMethod()]

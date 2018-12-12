@@ -254,7 +254,7 @@ namespace WiicoApi.Service.CommenService
         /// <param name="orgId"></param>
         /// <param name="searchAccount">要查詢的人名或是帳號名[先保留彈性]</param>
         /// <returns></returns>
-        public IEnumerable<UserGetResponse> GetBackendMemberListByOrgId(int? orgId, string searchAccount)
+        public IEnumerable<UserGetResponseData> GetBackendMemberListByOrgId(int? orgId, string searchAccount)
         {
             var db = _uow.DbContext;
 
@@ -268,7 +268,7 @@ namespace WiicoApi.Service.CommenService
                 list.Where(t => t.Account.StartsWith(searchAccount));
 
             var responseDatas = (from m in list.ToList()
-                                 select new UserGetResponse
+                                 select new UserGetResponseData
                                  {
                                      Account = m.Account,
                                      Id = m.Id,
@@ -292,8 +292,8 @@ namespace WiicoApi.Service.CommenService
                                      OrgId = m.OrgId,
                                      Photo = m.Photo,
                                      Visibility = m.Visibility,
-                                     PassWord = m.PassWord,
-                                     RoleName = m.RoleName,
+                                     Password = m.PassWord,
+                                     RoleId = m.RoleName,
                                      Verified = m.Verified
                                  }).ToList();
 

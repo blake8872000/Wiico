@@ -291,6 +291,7 @@
     <Compile Include="ViewModel\Backend\TimeTableGetRequest.cs" />
     <Compile Include="ViewModel\Backend\TimeTablePostRequest.cs" />
     <Compile Include="ViewModel\Backend\UserGetResponse.cs" />
+    <Compile Include="ViewModel\Backend\UserGetResponseData.cs" />
     <Compile Include="ViewModel\Backend\UserGetResponseExtraInfo.cs" />
     <Compile Include="ViewModel\Backend\UserPostResponse.cs" />
     <Compile Include="ViewModel\Backend\WeekTablePostRequest.cs" />

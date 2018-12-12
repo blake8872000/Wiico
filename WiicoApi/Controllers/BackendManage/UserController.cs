@@ -24,9 +24,9 @@ namespace WiicoApi.Controllers.BackendManage
     /// 使用者帳號管理
     /// </summary>
     [EnableCors("*", "*", "*")]
-    public class UserController : BaseController
-        <BaseResponse<IEnumerable<UserGetResponse>>, MemberManageGetRequest,
-        BaseResponse<UserPostResponse>, RegisterRequest,
+    public class UserController : BaseController<
+        UserGetResponse, MemberManageGetRequest,
+        UserPostResponse, RegisterRequest,
         BaseResponse<Member>, MemberManagePutRequest,
         BaseResponse<string>, string>
     {
@@ -40,30 +40,37 @@ namespace WiicoApi.Controllers.BackendManage
         public IHttpActionResult Get(string strAccess)
         {
             var requestData = JsonConvert.DeserializeObject<MemberManageGetRequest>(strAccess);
-
+            requestData.Rows = requestData.Rows.HasValue ? requestData.Rows.Value : 20;
+            requestData.Pages = requestData.Pages.HasValue ? requestData.Pages.Value : 1;
             //驗證token
             var authToken = AuthToken(requestData.Token, Request) as NegotiatedContentResult<BaseResponse<string>>;
             if (authToken.Content.Success == false)
                 return authToken;
 
-            getResponse = new BaseResponse<IEnumerable<UserGetResponse>>()
+            getResponse = new UserGetResponse()
             {
-                Success = false,
-                Data = new List<UserGetResponse>()
+                Pages = requestData.Pages,
+                BackPage=0,
+                NextPage=0,
+                Users = new List<UserGetResponseData>()
             };
 
             var service = new MemberService();
             var responseData = service.GetBackendMemberListByOrgId(requestData.OrgId, "");
             if (responseData.FirstOrDefault() == null)
-            {
-                getResponse.State =LogState.Error;
-                getResponse.Success = true;
-                getResponse.Message = "沒有資料";
-                return Ok(getResponse);
-            }
-            getResponse.Success = true;
-            getResponse.Message = "查詢成功";
-            getResponse.Data = (requestData.Pages.HasValue && requestData.Rows.HasValue) ? 
+                return Ok(responseData);
+            var totalPages = responseData.FirstOrDefault() == null ? 0 : 
+                                                                                                                            ( (responseData.Count() % requestData.Rows)!=0?
+                                                                                                                                        ( responseData.Count()/requestData.Rows)+1:
+                                                                                                                                        (responseData.Count() / requestData.Rows));
+            var nextPages = (totalPages.HasValue == false || totalPages.Value == 0) ? 0 :
+                                         ((totalPages.Value > requestData.Pages.Value) ? requestData.Pages.Value + 1 : 0);
+            var backPages = requestData.Pages.Value == 1 ? 0 :
+                                       requestData.Pages.Value - 1;
+            getResponse.Pages = totalPages;
+            getResponse.NextPage = nextPages;
+            getResponse.BackPage = backPages;
+            getResponse.Users = (requestData.Pages.HasValue && requestData.Rows.HasValue) ? 
                 responseData.Skip((requestData.Pages.Value-1)*requestData.Rows.Value).Take(requestData.Rows.Value).ToList():
                 responseData.ToList();
             return Ok(getResponse);
@@ -88,28 +95,16 @@ namespace WiicoApi.Controllers.BackendManage
 
             requestData.Token = _token;
 
-            postResponse = new BaseResponse<UserPostResponse>() {
-                Success=false,
-                Data = new UserPostResponse(),
-                State= LogState.Error,
-                Message = "註冊失敗"
-        };
+            postResponse = new UserPostResponse();
             
             var appKey = ConfigurationManager.AppSettings["AppLoginKey"].ToString();
             var encryptionService = new Service.Utility.Encryption();
 
             var service = new MemberService();
             var responseData = service.RegisterMember(requestData, null);
-            if (responseData!=null)
-            {
-                postResponse.Success = true;
-                postResponse.Message = "註冊成功";
-                postResponse.Data = responseData;
-                postResponse.State = LogState.Suscess;
-                return Ok(postResponse);
-            }
-            else
-                return Ok(postResponse);
+            if (responseData != null)
+                postResponse = responseData;
+            return Ok(postResponse);
         }
 
         /// <summary>
